@@ -7,5 +7,10 @@
         "build": "cd client && npm install && npm run build && cd ..",
         "deploy": "cp -a client/build/. public/",
         "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+    },
+    "dependencies": {
+        "moment": "^2.22.1",
+        "react-big-calendar": "^0.19.1",
+        "styled-components": "^3.2.6"
     }
 }
