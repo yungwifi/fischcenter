@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Calendar from 'react-calendar'
-import CalendarTest from './components/CalendarTest';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import HomePage from './components/HomePage'
+import FishPage from './components/FishPage'
+import Users from './components/Users'
+import UserProfile from './components/UserProfile'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <CalendarTest />
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/users" component={Users} />
+          <Route exact path="/users/:user_id" component={UserProfile} />
+          <Route exact path="/fish" component={FishPage} />
+        </div >
+      </Router>
     );
   }
 }
