@@ -20,9 +20,11 @@ class FishList extends Component {
 
     render() {
         const userFishList = this.state.fish.map((fish, i) => {
-            <div key={i}>
-                <div> {fish.name} </div>
-            </div>
+            return (
+                <div key={i}>
+                    <div> {fish.name} </div>
+                </div>
+            )
         })
         return (
             <div>

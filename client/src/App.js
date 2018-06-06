@@ -4,6 +4,7 @@ import HomePage from './components/HomePage'
 import FishPage from './components/FishPage'
 import Users from './components/Users'
 import UserProfile from './components/UserProfile'
+import FishProfile from './components/FishProfile';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/users" component={Users} />
           <Route exact path="/users/:user_id" component={UserProfile} />
           <Route exact path="/fish" component={FishPage} />
+          <Route exact path="/users/:user_id/fish/:fish_id" component={FishProfile} />
         </div >
       </Router>
     );
