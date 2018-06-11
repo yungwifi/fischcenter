@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
+import AddUser from './AddUser'
 
 class Users extends Component {
     state = {
-        users: []
+        users: [],
+        addUserForm: false
     }
 
     componentDidMount() {
         this.getUsers()
+    }
+
+    toggleUserForm = () => {
+        console.log("User Form State Change")
+        this.setState({
+            addUserForm: true
+        })
     }
 
     getUsers = async () => {
@@ -30,6 +39,8 @@ class Users extends Component {
             <div>
                 <h1>Users</h1>
                 <div> {userList} </div>
+                <button onClick={this.toggleUserForm}> Add User </button>
+                {this.state.addUserForm ? (<AddUser getUsers={this.getUsers} />) : null}
             </div>
         );
     }

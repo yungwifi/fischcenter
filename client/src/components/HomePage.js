@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom"
+
+import styled from 'styled-components'
+import NavBar from './NavBar';
+
+const Header = styled.div`
+background-image: url('https://i.imgur.com/6uz5q2a.gif');
+height: 100vh;
+background-size: cover;
+background-repeat: no-repeat;
+h1{
+    color: whitesmoke;
+}`
 
 class HomePage extends Component {
     render() {
         return (
             <div>
-                HomePage
-                <Link to="/fish"> Fish </Link>
-                <Link to="/users"> Users </Link>
+                <NavBar />
+                <Header >
+                </Header>
             </div>
         );
     }

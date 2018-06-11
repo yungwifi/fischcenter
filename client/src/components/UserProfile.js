@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import FishList from './FishList';
 
 class UserProfile extends Component {
     state = {
-        user: {}
+        user: {},
+        redirect: false,
     }
 
     componentDidMount() {
@@ -19,12 +20,24 @@ class UserProfile extends Component {
         console.log(res)
         await this.setState({ user: res.data })
     }
+
+    deleteUser = async () => {
+        const userId = this.props.match.params.user_id
+        const res = await axios.delete(`/api/users/${userId}/`)
+        console.log("RESPONSE FROM USER DELETING", res.data)
+        await this.setState({ redirect: true })
+    }
+
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to="/users" />)
+        }
         return (
             <div>
                 {this.state.user.first_name}
                 <Link to="/"> Home </Link>
                 <FishList userId={this.props.match.params.user_id} />
+                <button onClick={this.deleteUser}> Delete User </button>
             </div>
         );
     }
