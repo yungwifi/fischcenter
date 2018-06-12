@@ -30,7 +30,6 @@ class AddUser extends Component {
         const res = await axios.post(`/api/users/${userId}/fish`, newFish)
         await console.log("RESPONSE FROM NEW FISH BEING ADDED", res.data)
         await this.setState({ fish: res.data })
-        await this.props.getUser()
     }
 
     render() {

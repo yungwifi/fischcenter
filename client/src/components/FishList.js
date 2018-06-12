@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { Link } from "react-router-dom"
 
 class FishList extends Component {
     state = {
@@ -22,7 +23,7 @@ class FishList extends Component {
         const userFishList = this.state.fish.map((fish, i) => {
             return (
                 <div key={i}>
-                    <div> {fish.name} </div>
+                    <Link to={`${this.props.userId}/fish/${fish.id}`}><div> {fish.name} </div></Link>
                 </div>
             )
         })

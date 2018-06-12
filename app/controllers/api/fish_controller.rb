@@ -15,6 +15,12 @@ class Api::FishController < ApplicationController
         render json: @fish
     end
 
+    def destroy
+        @fish = Fish.find(params[:id])
+        @fish.destroy
+        render status: 200
+    end
+
     private
     def fish_params
         params.require(:fish).permit(:name)
