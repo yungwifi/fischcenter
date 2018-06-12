@@ -37,13 +37,6 @@ class UserProfile extends Component {
         await this.setState({ redirect: true })
     }
 
-    addFish = async () => {
-        const userId = this.props.match.params.user_id
-        const res = await axios.post(`api/users/${userId}/fish`)
-        console.log('ADDING NEW FISH', res)
-        await this.setState({ fish: res.data })
-    }
-
     render() {
         if (this.state.redirect) {
             return (<Redirect to="/users" />)
@@ -55,7 +48,7 @@ class UserProfile extends Component {
                 <FishList userId={this.props.match.params.user_id} />
                 <button onClick={this.deleteUser}> Delete User </button>
                 <button onClick={this.toggleFishForm}> Add Fish </button>
-                {this.state.addFishForm ? (<AddFish userId={this.state.user.id} />) : null}
+                {this.state.addFishForm ? (<AddFish userId={this.state.user.id} getUser={this.getUser} />) : null}
             </div>
         );
     }

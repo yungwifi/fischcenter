@@ -25,12 +25,12 @@ class AddUser extends Component {
         this.addFish(newFish)
     }
 
-    addFish = async () => {
+    addFish = async (newFish) => {
         const userId = this.props.userId
-        const res = await axios.post(`/api/users/${userId}/fish`)
+        const res = await axios.post(`/api/users/${userId}/fish`, newFish)
         await console.log("RESPONSE FROM NEW FISH BEING ADDED", res.data)
         await this.setState({ fish: res.data })
-        await this.props.getUsers()
+        await this.props.getUser()
     }
 
     render() {
