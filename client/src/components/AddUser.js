@@ -24,12 +24,12 @@ class AddUser extends Component {
             last_name: this.state.user.last_name
         }
         console.log("HANDLE SUBMIT", newUser)
-        this.addPhoto(newUser)
+        this.addUser(newUser)
     }
 
-    addPhoto = async (newUser) => {
+    addUser = async (newUser) => {
         const res = await axios.post(`/api/users`, newUser)
-        await console.log("RESPONSE FROM NEW PHOTO BEING ADDED", res.data)
+        await console.log("RESPONSE FROM NEW USER BEING ADDED", res.data)
         await this.setState({ user: res.data.user })
         await this.props.getUsers()
     }
@@ -43,7 +43,7 @@ class AddUser extends Component {
                     <input type="text" name="first_name" onChange={this.handleChange} />
                     <label htmlFor="last_name">Last Name</label>
                     <input type="text" name="last_name" onChange={this.handleChange} />
-                    <button type="submit"> Save User </button>
+                    <button type="submit"> Add User </button>
                 </form>
             </div>
         );
