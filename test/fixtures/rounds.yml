@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  round: MyString
-  day: one
+  fish: one
+  round_one: 1
+  round_two: 1
+  round_three: 1
+  bonus_round: 1
 
 two:
-  round: MyString
-  day: two
+  fish: two
+  round_one: 1
+  round_two: 1
+  round_three: 1
+  bonus_round: 1

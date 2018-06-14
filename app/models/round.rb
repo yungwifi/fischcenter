@@ -1,3 +1,3 @@
 class Round < ApplicationRecord
-  belongs_to :day
+  belongs_to :fish
 end

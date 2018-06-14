@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: MyString
-  fish: one
+  round: one
+  day: 2018-06-14
 
 two:
-  date: MyString
-  fish: two
+  round: two
+  day: 2018-06-14

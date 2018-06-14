@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_032750) do
+ActiveRecord::Schema.define(version: 2018_06_14_170746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "days", force: :cascade do |t|
-    t.string "date"
-    t.bigint "fish_id"
+    t.bigint "round_id"
+    t.date "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fish_id"], name: "index_days_on_fish_id"
+    t.index ["round_id"], name: "index_days_on_round_id"
   end
 
   create_table "fish", force: :cascade do |t|
@@ -32,11 +32,14 @@ ActiveRecord::Schema.define(version: 2018_05_18_032750) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.string "round"
-    t.bigint "day_id"
+    t.bigint "fish_id"
+    t.integer "round_one"
+    t.integer "round_two"
+    t.integer "round_three"
+    t.integer "bonus_round"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_rounds_on_day_id"
+    t.index ["fish_id"], name: "index_rounds_on_fish_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_05_18_032750) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "days", "fish"
+  add_foreign_key "days", "rounds"
   add_foreign_key "fish", "users"
-  add_foreign_key "rounds", "days"
+  add_foreign_key "rounds", "fish"
 end

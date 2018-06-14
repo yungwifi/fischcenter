@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users do
       resources :fish do
-        resources :days do
-          resources :rounds do
+        resources :rounds do
+          resources :days do
           end
         end
       end
