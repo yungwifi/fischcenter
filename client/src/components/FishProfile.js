@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from "react-router-dom"
+import Rounds from './Rounds';
 
 class FishProfile extends Component {
     state = {
@@ -29,13 +30,14 @@ class FishProfile extends Component {
 
     render() {
         if (this.state.redirect) {
-            return (<Redirect to='/users' />)
+            return (<Redirect to='/users/1' />)
         }
         return (
             <div>
                 {this.state.fish.name}
                 <Link to={`/users/${this.props.match.params.user_id}`}> User</Link>
                 <button onClick={this.deleteFish}> Delete Fish </button>
+                <Rounds fishId={this.props.match.params.fish_id} />
             </div>
         );
     }

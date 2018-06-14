@@ -6,7 +6,7 @@ import AddUser from './AddUser'
 class Users extends Component {
     state = {
         users: [],
-        addUserForm: false
+        addUserForm: false,
     }
 
     componentDidMount() {
@@ -16,7 +16,7 @@ class Users extends Component {
     toggleUserForm = () => {
         console.log("User Form State Change")
         this.setState({
-            addUserForm: true
+            addUserForm: !this.state.addUserForm
         })
     }
 

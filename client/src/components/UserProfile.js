@@ -18,7 +18,7 @@ class UserProfile extends Component {
     toggleFishForm = () => {
         console.log("Fish Form State Change")
         this.setState({
-            addFishForm: true
+            addFishForm: !this.state.addFishForm
         })
     }
 
@@ -46,7 +46,6 @@ class UserProfile extends Component {
                 {this.state.user.first_name}
                 <Link to="/"> Home </Link>
                 <FishList userId={this.props.match.params.user_id} />
-                <button onClick={this.deleteUser}> Delete User </button>
                 <button onClick={this.toggleFishForm}> Add Fish </button>
                 {this.state.addFishForm ? (<AddFish userId={this.state.user.id} getUser={this.getUser} />) : null}
             </div>

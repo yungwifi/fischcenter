@@ -19,7 +19,7 @@ class FishPage extends Component {
     render() {
         const fishies = this.state.fish.map((fish, i) => {
             return (<div key={i}>
-                <Link to={`1/fish/${fish.id}`}><div> {fish.name} </div></Link>
+                <Link to={`/users/1/fish/${fish.id}`}><div> {fish.name} </div></Link>
             </div>
             )
         })
