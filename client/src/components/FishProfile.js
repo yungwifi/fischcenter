@@ -34,10 +34,11 @@ class FishProfile extends Component {
         }
         return (
             <div>
-                {this.state.fish.name}
+                <h1>{this.state.fish.name}</h1>
                 <Link to={`/users/${this.props.match.params.user_id}`}> User</Link>
-                <button onClick={this.deleteFish}> Delete Fish </button>
+                <br />
                 <Rounds fishId={this.props.match.params.fish_id} />
+                <button onClick={this.deleteFish}> Delete Fish </button>
             </div>
         );
     }

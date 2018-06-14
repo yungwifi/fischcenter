@@ -10,7 +10,7 @@ class AddUser extends Component {
 
     handleChange = (e) => {
         const fish = { ...this.state.fish }
-        console.log("PHOTO", fish)
+        console.log("FISH", fish)
         fish[e.target.name] = e.target.value
         console.log("HANDLE CHANGE EVENT", e.target.value)
         this.setState({ fish })

@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Rounds from './Rounds'
+import styled from 'styled-components'
+
+const FishStyled = styled.div`
+display: flex;
+flex-direction: row;`
 
 class FishList extends Component {
     state = {
@@ -23,7 +29,10 @@ class FishList extends Component {
         const userFishList = this.state.fish.map((fish, i) => {
             return (
                 <div key={i}>
-                    <Link to={`${this.props.userId}/fish/${fish.id}`}><div> {fish.name} </div></Link>
+                    <FishStyled >
+                        <Link to={`${this.props.userId}/fish/${fish.id}`}><div> {fish.name} </div></Link>
+                        <Rounds fishId={fish.id} />
+                    </FishStyled>
                 </div>
             )
         })
