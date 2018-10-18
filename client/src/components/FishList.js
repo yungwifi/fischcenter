@@ -19,9 +19,7 @@ class FishList extends Component {
 
     getFish = async () => {
         const userId = this.props.userId
-        console.log("USER ID", userId)
         const res = await axios.get(`/api/users/${userId}/fish`)
-        console.log("RESPONSE FROM DB", res)
         await this.setState({ fish: res.data })
     }
 

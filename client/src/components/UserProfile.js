@@ -16,7 +16,6 @@ class UserProfile extends Component {
     }
 
     toggleFishForm = () => {
-        console.log("Fish Form State Change")
         this.setState({
             addFishForm: !this.state.addFishForm
         })
@@ -24,16 +23,13 @@ class UserProfile extends Component {
 
     getUser = async () => {
         const userId = this.props.match.params.user_id
-        console.log("GETTING A USER", userId)
         const res = await axios.get(`/api/users/${userId}`)
-        console.log(res)
         await this.setState({ user: res.data })
     }
 
     deleteUser = async () => {
         const userId = this.props.match.params.user_id
         const res = await axios.delete(`/api/users/${userId}/`)
-        console.log("RESPONSE FROM USER DELETING", res.data)
         await this.setState({ redirect: true })
     }
 

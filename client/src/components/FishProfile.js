@@ -24,7 +24,6 @@ class FishProfile extends Component {
         const userId = this.props.match.params.user_id
         const fishId = this.props.match.params.fish_id
         const res = await axios.delete(`/api/users/${userId}/fish/${fishId}`)
-        console.log("RESPONSE FROM FISH DELETING", res.data)
         await this.setState({ redirect: true })
     }
 

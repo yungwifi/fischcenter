@@ -11,9 +11,7 @@ class AddUser extends Component {
 
     handleChange = (e) => {
         const user = { ...this.state.user }
-        console.log("PHOTO", user)
         user[e.target.name] = e.target.value
-        console.log("HANDLE CHANGE EVENT", e.target.value)
         this.setState({ user })
     }
 
@@ -23,13 +21,11 @@ class AddUser extends Component {
             first_name: this.state.user.first_name,
             last_name: this.state.user.last_name
         }
-        console.log("HANDLE SUBMIT", newUser)
         this.addUser(newUser)
     }
 
     addUser = async (newUser) => {
         const res = await axios.post(`/api/users`, newUser)
-        await console.log("RESPONSE FROM NEW USER BEING ADDED", res.data)
         await this.setState({ user: res.data.user })
         await this.props.getUsers()
     }

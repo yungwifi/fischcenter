@@ -14,16 +14,13 @@ class Users extends Component {
     }
 
     toggleUserForm = () => {
-        console.log("User Form State Change")
         this.setState({
             addUserForm: !this.state.addUserForm
         })
     }
 
     getUsers = async () => {
-        console.log("GETTING USERS")
         const res = await axios.get('api/users')
-        console.log("RESPONSE FROM DATABASE", res)
         await this.setState({ users: res.data })
 
     }

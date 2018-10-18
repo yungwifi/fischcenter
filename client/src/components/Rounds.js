@@ -9,29 +9,29 @@ margin-left: 10px;`
 
 class Rounds extends Component {
     state = {
-        rounds: [3, 4],
-        roundsTotal: 4
+        rounds: [],
+        roundsTotal: 0
 
     }
 
-    componentDidMount() {
+    componentDidMount = async () => {
         this.getRounds()
-        this.getRoundsTotal()
     }
 
-    getRoundsTotal() {
-        function getSum(total, num) {
-            return total + num
-        }
-        var roundsSum = this.state.rounds.reduce(getSum)
-        this.setState({ roundsTotal: roundsSum })
-
+    getRoundsTotal = async () => {
+        var roundOne = await this.state.rounds[0].round_one
+        var roundTwo = await this.state.rounds[0].round_two
+        var roundThree = await this.state.rounds[0].round_three
+        var bonusRound = await this.state.rounds[0].bonus_round
+        var roundTotal = roundOne + roundTwo + roundThree + bonusRound
+        this.setState({ roundsTotal: roundTotal })
     }
 
     getRounds = async () => {
         const fishId = this.props.fishId
         const res = await axios.get(`/api/users/2/fish/${fishId}/rounds`)
         await this.setState({ rounds: res.data })
+        await this.getRoundsTotal()
 
     }
 
